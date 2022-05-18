@@ -1,0 +1,310 @@
+2.1.4
+ - Qlik radio button -visualization - fix for search settings, search menu was hidden
+2.1.3
+ - Fixes for Cloud / SaaS Qlik for field hiding, remove full screen and many others - especially important remove Insight Advisor and Story telling -functions are working again. :)
+ - Cloud / SaaS version of Qlik has multiple changes in its HTML and some modifications SFS can do might still miss these changes. Qlik's HTML coding style has been changed to some how confusing manner. Some elements have id selectors, some have classes or just attributes and many don't have any, inline CSS seems to be there more than before. This version of SFS will return many features of SFS back in use with Cloud.
+2.1.2
+ - Minor change in getApp call
+ - Field sanitization with value 2 will sanitize only <script
+2.1.1
+ - Fix for hover title in drop down select
+2.1.0
+ - Option to enable text field sanitization which will remove for example Javascript and other HTML characters. This is done by modifying source code. So every time SFS is updated, the option must be re-enabled. 
+   - To enable: Edit the extension source code inside the zip file: On the 4. line of properties.def.js set value to 1 in "var useSanitize = 1;" Default value is 0.
+   - The parameter is located in source code so that the developer with Qlik UI cannot change the setting
+ - Add more padding options to select (sorry, should be text instead of dropdown)
+2.0.14
+ - Fix for other SFS object update when some selections are done in full screen
+2.0.13
+ - Context menu location change
+ - Extra attribute for HTML standard input
+2.0.12
+ - Fix for select only one -functionality.
+2.0.11
+ - Mobile settings to own section in properties
+ - Fix for mobile scroll. Was not shown by default. Can be disabled with scroll disable option.
+2.0.10
+ - Minor changes
+ - Select2 fixes as suggested by vbakke
+2.0.9
+ - Fix for search with checkboxes and others
+2.0.8
+ - Option to remove variable barckets and double quotas from shown variable. This is needed when variable control is used to select values
+ - If "Select defaults once" and there is some selection before defaults are selected and then selections are removed, defaults are considered to be already selected once. So no re-selection happens when initial selection has been cleared.
+ - Due to lack of data update of Storytelling there is now a new option to hide just the Storytelling button from the toolbar
+2.0.7
+ - Minor fix for cloud
+ - Fix for dragging selection - The first element with dragging was not selected - now it will!
+ - Select2 library update
+ - Option to remove "More options" or "..." menu from the object
+2.0.6
+ - Fix for overlay handling
+2.0.5
+ - Alternative overlay implementation which will fill whole object.
+2.0.4
+ - Removed jquery.ui library (seems that it is not needed anymore). Improves cloud functionality
+2.0.3
+ -  Disable toggle mode -option. This is actually fix for case when Qlik has "Always one selected value" - set, now this old issue is finally fixed! You have to set extension to work with out Toggle mode.
+2.0.2
+ - Fix for Global object background with newer Qlik version and cloud
+ - Fox for Global object axis color change (newer Qlik version have different kind of way to set colors) Both old and new version should be supported now.
+2.0.1
+ - Dropdown and select2 have possibility to create sections group labels with special notation in variable settings like ##firstvaleus;1;2;3;4;##secondvalues;5;6;7;8
+2.0.0
+ - Option to remove clear button from search
+ - Minor fixes
+ - Remove full screen option will default in new objects to true, a wish from the Qlik Pre-sales. :)
+ - Hover color and font settings were hidden because of code typo. So element hover background and font colors can be again defined.
+ - Global option to set (many of) the colors and paddings of all SFS objects on a sheet. So you can use one object to control some settings of all SFS objects. No need to configure each separately.
+1.9.31
+ - Search only visualization fix if two or more instances on one sheet
+1.9.30
+ - Hide from selections bar - fix, if a function is used in the field name or for someother reason = mark is in the beginning
+1.9.29
+ - Multiword searchonly visualization improvements: If over 100 search terms, search happens only after pressing enter. Search can be set to exact-mode within search settings. It is faster, whole word comparison, if you have to select thousands of elements. Normal search searches for the occurance of the string as Qlik does.
+ - Search only visualization will allways parse "Excel" styled copy-paste data
+1.9.28
+ - Global option to remove zoom efect from mobile view. This makes selecting and interacting with graphs and tables so much faster in mobile.
+1.9.27
+ - Search only visualization - will show search box only, won't draw elements. This is usefull for fields with high number of elements and when there is a need to select great amount of them. For example by copy-pasting from Excel etc. Works also with delimited string. Limitation: Won't count duplicates in multiword case correctly while searching.
+ - Mobile header, search field and footer hiding options in Global settings.
+ - Faster search, ESC key handling
+ - Excel search may have also delimited data if delimiter is set. So both settings can be enabled at the same time.
+1.9.26
+ - Sheet background extra HTML will be cleaned when leaving sheet.
+1.9.25
+ - Sheet title hiding fix
+ - Alternative way to set sheet background CSS. This one allows to use background with extended sheet functionality so that background will stay with the moves of the grid.
+ - IE 11 support for search - thanks to github user ahmednuaman for pointing the issue!
+ - Global: Sheet background extra HTML element - experimental feature to have custom HTML on document background.
+  - Try for example this: '<div style="background-color:green; width:100%;height:100px;"></div> <div style="background-color:#A29723; width:calc(100% - 8px);height:calc(100% - 100px); border:4px solid green;"></div><div style="position:fixed; bottom:20px; left:25px; background-color:#d7d7d7;color:#ee1145;padding:10px;border-radius:10px;z-index:1300;">Notice! There is this kind of info box</div>'
+1.9.24
+ - Excel copy-paste multisearch feature. Get a list of elements from excel, in vertical or horizontal way and copy paste it to SFS search field. Feature can be enabled from settings.
+ - Improvements to search field visuals
+1.9.23
+ - Top padding was mising from the element. Because idea is not to break legacy versions, there is also now more modern way to set padding of the visualization with custom padding field.
+1.9.22
+ - Bug fix for overlay and new multiword search
+1.9.21
+ - User requested feature: Copy-paste multivalue search. You can define separator character for search field so that you can copy-paste multiple values to be searched. For example set separator to ; and type into SFS search box London;Paris;Barcelona;New York;Helsinki and those cities will be selected (Wildcards are not supported.)
+ - Overlay functionality. Create a canvas on top of selector to prevent selecting.
+1.9.20
+ - Global object settings: Custom CSS style for header and header text. Custom CSS for graph axis texts.
+1.9.19
+ - Inline label will be shown in tooltip
+ - Global Native selection background color fix for older Sense releases
+ - Custom CSS for sheet title area
+1.9.18
+ - Hide items with a list - define list of item values which you don't want to be shown
+ - Fix: If sheet title height is changed, the title image will be also changed to same setting. Image used to overflow otherwise.
+1.9.17
+ - Bug fix: If default value with variable is used it might cause infinite loop and flickering.  Tip: Do not use variable default, set variale value hard coded instead.
+1.9.16
+ - In Mashups variable might not have been updated correctly with latest Qlik Sense versions
+1.9.15
+ - Fix for search icon. Since latest Qlik Sense versions Full screen icon was overlapping search icon. This is first quick fix for this issue.
+1.9.14
+ - Hide Full screen button -option
+1.9.13
+ - Select2 imporovement, should be stable even with many instances. Clean up on sheet leave. Select2 library upgraded to 4.0.7
+ - Select2 default colors are more Qlik now.
+1.9.12
+ - Hover (when mouse is over an element) font color, background color and custom CSS for hover
+ - Select2 hover color can be now changed
+ - It is now possible to add expressions to advanced CSS section and color settings
+1.9.11
+ - bug fix
+1.9.10
+ - Inline label CSS and flex layout fix
+ - Extra option for show only possible values: If nothing is selected, show all
+1.9.9 
+Teppo O from QlikTech Finland made _again_ few brilliant feature requests for this extension
+ - Global background color can be now targetted to specific objects only
+ - Global option for native Qlik list object coloring (filter pane) and current selection panel.
+ - Global option for custom CSS style for every or selected types of objects
+ - Improved variable handling - still missing select for existing variables but now it is more stable anyway
+ - Flexbox layout - same width to all elements
+ - Custom width and height of an element
+1.9.8
+ - Toolbar text visualization improvement
+ - Option to make "Data, Analysis, Story" menu hiding permanent on first load so that it doesn't have to be done again on every sheet and wait for all the objects to load before hiding happens. Note that every landing sheet should have this option enabled.
+ - Fix for Aprile 2019 release, borders and mouseover resize functionality
+1.9.7
+ - Qlik Sense February 2019 colors. If you need the old ones, uncommnent last lines from extensions SimpleFieldStyle.css.
+ - Property to set a fixed font size like 10px. Native filters tend to use font-size 12px.
+ - Horizontal list visual settings changed so that it is more like Qlik native list.
+1.9.6
+ - On mouse enter, resize object height and width with multiplier
+ - Bugfix: NaN value handling when selecting values
+1.9.5
+ - Copy to clipboard -context menu option!! Copies selected or possible values to clipboard.
+ - Global option to set keep alive timer. If your Qlik forces you to login after having lunch or unsaved script gets lost during the phone call, here is the keep aliver. :) Just keep a sheet open with a object having the keep aliver on.
+ - Context menu fix for Qlik styled checkbox and switch visualizations
+ - There was extra space in few visualizations in the beginning of the label. It is now removed.
+ - Search will be enabled as default when new objects are created
+1.9.4
+ - Fixes for Qlik Sense 2019 february. Some dropdown menus for setting font sizes and paddings changed to integers with expression options
+ - Global option to hide new "Data, Analysis, Story" menu on main toolbar
+1.9.3
+ - Option to clear selections of the current field on first load (on sheet open/arrival) and on sheet exit
+ - Fix, clear generated DOM elements on sheet change
+1.9.2
+ - Fix sheet background color with newer Qlik Sense versions
+1.9.1
+ - Fix for variable selection after a qlik native object was in full screen mode and selections were made
+ - Global option to add text to menu bar
+1.9.0
+ - Global option to clear all selections on first load (on sheet open/arrival)
+ - Global option to clear all selections when leaving a sheet
+1.8.9
+ - CSS inputfield checking improvement
+ - Fix for CSS control of Qlik native visualizations
+1.8.8
+ - Option to select many values into one variable. The result string will be concatenated from the selected options.
+ - Fix for variable default value selection - for best functionality, set default value normally to variable if possible.
+1.8.7
+ - Select defaults only once - option added. During first page load deafaults are selected but not afterwards when this option is enabled.
+ - Show only selected -option. So the output is empty if nothing from this particular field is selected.
+ - Help text CSS style
+ - Context menu fix
+ - Main object width parameter for drop down and select visualizations (change the width of the drop down menu)
+ - CSS handling change
+1.8.6
+ - Enabling Export possibility in version 1.8.2 caused that the right click menu, context menu didn't work anymore. Now there is a switch which allows you to enable export mode. As default it is disabled.
+ - Alternative version for context menu triggering, show as a menu icon
+ - Margin for each element can be now set
+ - Paddings and header property section rearranged
+ - Responsive font size for elements
+ - "Enable search" moved to Other settings section
+ - rearrange Global modifications -settings
+1.8.5
+ - GLobal modifications: Selection bar extra text element has been moved to correct position in DOM, custom CSS can be set and "Qlik style" can be applied
+1.8.4
+ - Field name of the hiding can be set with expression if needed
+ - Fix for hiding field from selection bar, name handling
+ - Replaced depricated variable setContent function
+1.8.3
+ - Increased padding for selection bar extra text
+ - Visual option to enable horizontal scroll
+ - Visual option to show elements without white space wrap = set all elements to one line - doesn't work with Qlik Switch -visualization yet
+1.8.2
+ - Change for data waiting in case of a lot of data
+ - Export parameter is now set to true. Extension will be visible in PDF:s etc. Also export option will be shown when right clicked.
+ - Gloabl options for hiding Smart search, Selections tool and Insights from the toolbar
+ - Fix if main toolbar is hidden, no more empty on the bottom of the page. Hiding logic changed.
+1.8.1
+ - Leonardo UI (Qlik native) styled Radio button
+1.8.0
+ - Fix for maximum row amount. Now SFS supports all rows in a dimension.
+1.7.9
+ - Posibility to add HTML before and after every element
+ - changes and fixes in context menu
+ - text only visualization max number of character increased to 2000 and a CSS change/fix
+1.7.8
+ - fix: multiple default selections -setting was not visible in properties
+ - other fixes and small changes
+1.7.7
+ - UI fix for selection bar extra text
+1.7.6
+ - fix for text only -visualization. 
+ - Parameter re-arrange.
+ - Object's own border colors can be changed. Object border has two colors, you can now control both.
+ - Second border color parameter added to Global modifications.
+ - improvements to sheet title and selection bar extra text handling
+ - improvements for selected variable handling although it is not perfect yet
+1.7.5
+ - New text only visualization. SFS can be used to integrate html, javascript or css code. Many same settings can be used, that's why generic text field was implemented.
+ - improvements to error situation handling
+1.7.4
+ - fix: De-selecting works when "select only one" is used.
+1.7.3
+ - Global option for sheet background CSS. Can be used for example gradiend background: 'background: linear-gradient(90deg, rgb(80,80,80) 0%,rgb(150,150,100) 50%, rgb(255,255,125) 100%);'
+1.7.2
+ - Improved performance
+1.7.1
+ - Global option to remove Pivot table's "dimension selector boxes"
+ - Global option to add extra text field to sheet header and selections bar - use for example to show document update time etc
+1.7.0
+ - Fixes for Qlik Sense February 2018 version, part of the global color options didn't work.
+1.6.9
+ - More Global options for *every* object on the same sheet:
+  - Header font color and background color definition
+  - Hide headers which don't have any text on them
+  - Object padding (left and right) can be adjusted - adjust space around content
+  - Global modifications has been moved
+1.6.8
+ - Global option to hide all headers on the sheet
+1.6.7
+ - fix for switch and qlik styled checkbox font color
+1.6.6
+ - fix background colors again
+1.6.5
+ - fix background colors in "Sense Classic" -theme
+ - set variable to empty string when selected is selected again - feature. For new objects default is true.
+1.6.4
+ - font-family css parameter added for current object and in the Global modifications -section. Global version will change every 
+ - New visualizations: Qlik switch and Qlik checkbox (Qlik's own Leonardo UI components)
+ - global background color for every element on a sheet
+ - fix for dropdown and Select2 color handling
+ - another parameter for global settings which allows to adjust Qlik's default header padding. Gives more room for the data.
+ - Remove labels - feature
+ - Rearrange some parameters
+1.6.3
+ - fix for variable default value and search result selection
+1.6.2
+ - improve color handling on Select2 visualization
+1.6.1
+- disable debugging messages which were accidentally left on
+1.6.0
+ - Dropdown can be now used as a multiselect. It will works as standard HTML. All color settings cannot be applied.
+ - Select2 (https://select2.org) plugin has been implemented as one possible visualization option. Select2 is a Dropdown menu plugin which has for example search and advanced multiselect posibility.
+ - Selecting many items from the horizontal or vertical list by "painting" or dragging. Press left mouse and move mouse inside object, Qlik sense style. Doesn't work on mobile.
+Suomi Finland 100 years -edition
+ - First version of the search functionality. Enable search from settings. Use enter to select all found. Only one item can be selected from the search result.
+1.5.1
+ - Bug fix for Sheet header title height setting, 12px and 16px works now.
+ - New parameter for hiding vertical scroll bar in any case, even if content overflows.
+1.50
+ - Bug fixes: Date picker now shows month change icons correctly. 
+ - Visual/UI fixes.
+ - Fix for context menu actions
+ - New features: Slider has now tooltip for current value.
+ - Qlik Sense's own Leonard UI visual styles can be enabled for part of the visualizations.
+ - Improved fitting to the object container.
+ - More padding options.
+ - New global parameter for reducing padding in sheet's object headers = more room for actual content.
+1.4.5
+ - New global parameter, get rid of the header in the Text & Image objects. You can have more space for the text itself.
+1.4.4
+ - Text align inside elements, horizontal and vertical
+ - With horizontal list there is a option to fill the whole area with the buttons. Use Show as Table option with Use maximum height.
+ - Context menu is now fixed and won't be behind other elements (rather complicated fix, I hope it works. :))
+1.4.3
+ - Better way to set max (and now also min date) for date picker. There are now two function fields for min/max setting. The old variable version will be depricated.
+ - bug fixes for settings panel, some unwanted options cleared.
+1.4.2
+ - Minor bug fix to variable handling
+1.4.1
+ - Bug fixes to default selections in case of variable
+ - New global features to modify Sheet title bar, change height and font size.
+ - Possibility to hide selections bar and also main menu bar. Be carefull with hiding the main menu!
+ - You can now hide several other fields from the selection bar.
+1.4.0
+ - Standard HTML5 inputs can be now used to control variables. There is text, number, range slider, color picker, date, time, week, month and password inputs.
+ - Improved some visualizations like setting internal background of input fields and select.
+ - You may need to replace previous extension object with the new version.
+1.3.8
+ - Part of the settings are reorganized. The visualization type selection is now with the dimensions selection and the sortings are moved to own section
+ - Supports now multiple default value selections.
+ - Has a context menu (right click menu) for select all, clear selections, reverse selection, select possible, select default values and select randomly (Just came to my mind, for fun maybe). You can select which options are shown.
+1.3.7
+ - Bug fix for settings bugs in 1.3.6
+ - Radio button visualization
+1.3.6
+ - Global parameters for the current sheet, like background color and border color of all objects on the sheet
+ - Background color of the object can be changed
+1.3.5
+ - Support for button rendering (beta)
+1.3.4
+ - Added documentation to UI for quiding variable vs. field selection.
+ - location changed for "is variable"

@@ -1,0 +1,16 @@
+{
+	"name": "SimpleFieldSelect",
+	"description": "Field and variable selector for Qlik Sense",
+	"type": "visualization",
+	"version": "2.1.4",
+	"icon": "list",
+	"author": "Matti Punkeri / Oivalo Oy https://www.oivalo.fi",
+	"homepage": "https://www.oivalo.fi",
+	"keywords": "qlik-sense, visualization",
+	"license": "MIT",
+	"preview" : "RlogoSFS.png",
+	"repository": "https://github.com/mediassarQlikBranch/SimpleFieldSelect",
+	"dependencies": {
+		"qlik-sense": ">=3.0.x"
+	}
+}
